@@ -1,9 +1,6 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "inscricao")
@@ -13,6 +10,10 @@ public class Inscricao {
     private Long id;
     private String dataInscricao;
     private boolean confirmada;
-    private Long idEvento;
-    private Long idParticipante;
+
+    @ManyToOne
+    private Evento evento;
+
+    @ManyToOne
+    private Participante participante;
 }

@@ -1,9 +1,7 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "participante")
@@ -13,4 +11,7 @@ public class Participante {
     private Long id;
     private String nome;
     private String email;
+
+    @OneToMany(mappedBy = "participante")
+    private List<Inscricao> inscricoes;
 }
